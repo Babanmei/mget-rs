@@ -1,0 +1,22 @@
+[package]
+name = "mget-rs"
+version = "0.1.0"
+authors = ["bernie <xybiao2005@163.com>"]
+edition = "2018"
+
+
+[dependencies]
+openssl-sys = "0.9.54"
+json = "*"
+serde = "1.0.104"
+serde_json = "1.0.44"
+serde_derive = "1.0.104"
+clap = {git = "https://github.com/clap-rs/clap.git", version = "3.0.0-beta.1", features = ["yaml"]}
+reqwest = {git = "https://github.com/seanmonstar/reqwest.git", version = "0.10", features = ["blocking", "json"]}
+anyhow = "1.0.26"
+threadpool = "*"
+indicatif = "0.14.0"
+log = "0.4"
+env_logger = "0.7.1"
+positioned-io = "0.2"
+

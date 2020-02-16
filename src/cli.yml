@@ -1,0 +1,21 @@
+name: mget
+version: "1.0"
+author: xybiao2005@163.com
+about: cloud cmd line
+args:
+  - threads:
+      short: t
+      required: false
+      takes_value: true
+      help: thread num
+  - partSize:
+      short: b
+      required: false
+      takes_value: true
+      help: part size
+  - remote:
+      takes_value: true
+      help: file url
+  - local:
+      takes_value: true
+      help: 本地目录
