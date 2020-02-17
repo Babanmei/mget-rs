@@ -1,7 +1,7 @@
 name: mget
 version: "1.0"
 author: xybiao2005@163.com
-about: cloud cmd line
+about: mget cmd line
 args:
   - threads:
       short: t
@@ -18,4 +18,4 @@ args:
       help: file url
   - local:
       takes_value: true
-      help: 本地目录
+      help: local dir

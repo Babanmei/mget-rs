@@ -1,6 +1,4 @@
 use mget_rs::{range_download_file, get_file_header};
-use reqwest::header::{HeaderMap, HeaderValue};
-use serde_json::Value;
 use std::path::PathBuf;
 use std::str::FromStr;
 
@@ -10,7 +8,12 @@ fn main() {
 
     let threads = matches.value_of("threads");
     let part_size_opt = matches.value_of("partSize");
-    let url = matches.value_of("remote").expect("please input file url");
+    let url = matches.value_of("remote");
+    if url.is_none() {
+        println!("please input url");
+        return;
+    }
+    let url = url.unwrap();
     let local_path = matches.value_of("local");
     //set default
     let thread_num = if threads.is_none() { 3 } else { threads.unwrap().parse().unwrap() };

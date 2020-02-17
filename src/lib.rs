@@ -26,11 +26,15 @@ pub fn get_file_header(url: &str) ->Result<u64> {
     headers.insert(
         "Content-Type", HeaderValue::from_static("application/x-www-form-urlencoded")
     );
-    let mut resp: reqwest::blocking::Response = reqwest::blocking::Client::new()
+    let resp: reqwest::blocking::Response = reqwest::blocking::Client::new()
         .get(url)
         .headers(headers)
         .send()?;
-    let status = resp.status();
+    //let status = resp.status().is_success();
+    if !resp.status().is_success() {
+        println!("{:#?}", resp);
+        return Ok(0);
+    }
     let file_length = resp.headers().get("content-length").unwrap().to_str().unwrap();
     let file_length: u64 = file_length.parse()?;
     Ok(file_length)
